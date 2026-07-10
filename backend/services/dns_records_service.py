@@ -1,4 +1,6 @@
+# pyrefly: ignore [missing-import]
 from sqlalchemy.orm import Session
+# pyrefly: ignore [missing-import]
 from sqlalchemy import or_
 from typing import Optional
 from models import DNSRecord
