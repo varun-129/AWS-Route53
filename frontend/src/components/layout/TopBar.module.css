@@ -1,0 +1,182 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px; /* AWS is usually 40px or 48px, screenshot looks like 40px but I'll stick to 40px for tighter feel */
+  background-color: var(--topbar-bg);
+  color: var(--topbar-text);
+  padding: 0 16px;
+  font-family: var(--font-family);
+  font-size: var(--base-font-size);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: none;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 250px; /* Aligns with sidebar */
+}
+
+.awsTextLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.logoSeparator {
+  width: 1px;
+  height: 24px;
+  background-color: #545b64;
+}
+
+.awsQLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.servicesGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+}
+.servicesGrid:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.searchContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 16px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-search);
+  width: 100%;
+  max-width: 450px;
+  height: 28px;
+  padding: 0 8px;
+}
+
+.searchIcon {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  flex: 1;
+  margin-left: 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.searchShortcut {
+  font-size: 11px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navItem {
+  color: var(--topbar-text);
+  cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+
+.navDropdown {
+  color: var(--topbar-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.navDropdown:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownArrow {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.dropdownIcon {
+  opacity: 0.8;
+}
+
+.userInitials {
+  background-color: #687078;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.navItemText {
+  display: none; 
+}
+
+@media (min-width: 1024px) {
+  .navItemText {
+    display: inline;
+  }
+}
+
+.logoutBtn, .iconBtn {
+  background: none;
+  border: none;
+  color: var(--topbar-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  opacity: 0.85;
+}
+
+.logoutBtn:hover, .iconBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}

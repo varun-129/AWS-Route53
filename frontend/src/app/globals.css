@@ -1,0 +1,101 @@
+:root {
+  /* Layout & Typography Base */
+  --font-family: "Amazon Ember", Arial, Helvetica, sans-serif;
+  --base-font-size: 13px;
+
+  /* Colors: Light Theme (AWS Route 53 Default) */
+  --bg-primary: #f2f3f3;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f9f9f9;
+  --bg-surface-active: #f2f8fd;
+  --text-primary: #16191f;
+  --text-secondary: #545b64;
+  --border-color: #eaeded;
+  --border-color-strong: #879596;
+  --brand-orange: #ff9900;
+  --brand-orange-hover: #ec7211;
+  --brand-orange-active: #db6700;
+  --link-color: #0972d3;
+  --link-hover: #033160;
+  --danger: #d13212;
+  --danger-hover: #a0250d;
+  --sidebar-bg: #ffffff;
+  --sidebar-active: #f2f8fd;
+  --sidebar-text: #16191f;
+  --sidebar-text-active: #0972d3;
+  --sidebar-border: #0972d3;
+  --topbar-bg: #232f3e;
+  --topbar-text: #ffffff;
+  --error-bg: #fceceb;
+  --disabled-text: #aab7b8;
+}
+
+[data-theme="dark"] {
+  /* Colors: Dark Theme (AWS Dark Mode Spec) */
+  --bg-primary: #0f1b2a;
+  --bg-surface: #192534;
+  --bg-surface-hover: #222e3e;
+  --bg-surface-active: #2a333d;
+  --text-primary: #e5e5e5;
+  --text-secondary: #aab7b8;
+  --border-color: #414b56;
+  --border-color-strong: #545b64;
+  --brand-orange: #ff9900;
+  --brand-orange-hover: #ec7211;
+  --brand-orange-active: #db6700;
+  --link-color: #3b99fc;
+  --link-hover: #67b0fc;
+  --danger: #ff5252;
+  --danger-hover: #ff7676;
+  --sidebar-bg: #0f1b2a;
+  --sidebar-active: #192534;
+  --sidebar-text: #aab7b8;
+  --sidebar-text-active: #3b99fc;
+  --sidebar-border: #3b99fc;
+  --topbar-bg: #16191f;
+  --topbar-text: #e5e5e5;
+  --error-bg: #4b1a16;
+  --disabled-text: #687078;
+}
+
+:root {
+  --border-radius-button: 16px;
+  --border-radius-card: 0px;
+  --border-radius-input: 16px;
+  --border-radius-search: 16px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--base-font-size);
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Global focus state per AWS spec */
+*:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+/* Global link styles */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 700;
+  color: var(--text-primary);
+}

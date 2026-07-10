@@ -1,0 +1,104 @@
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.table th {
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 20px;
+  border-top: 1px solid #aab7b8;
+  border-bottom: 2px solid #aab7b8;
+  position: relative;
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dividerTh::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 30%;
+  height: 40%;
+  width: 1px;
+  background-color: #16191f;
+}
+
+.checkboxTh, .checkboxTd {
+  width: 48px;
+  text-align: center;
+  padding: 0;
+}
+
+.table td {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-primary);
+  border-bottom: 1px solid #aab7b8;
+}
+
+.table tbody tr {
+  background-color: transparent;
+}
+
+.table tbody tr:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.selectedRow {
+  background-color: var(--bg-surface-active) !important;
+}
+
+.selectedRow td {
+  border-top: 2px solid var(--link-color) !important;
+  border-bottom: 2px solid var(--link-color) !important;
+}
+
+.selectedRow td:first-child {
+  border-left: 2px solid var(--link-color) !important;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.selectedRow td:last-child {
+  border-right: 2px solid var(--link-color) !important;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.table tr:has(+ .selectedRow) td {
+  border-bottom-color: transparent !important;
+}
+
+.table:has(tbody tr:first-child.selectedRow) th {
+  border-bottom-color: transparent !important;
+}
+
+.loadingCell, .emptyCell {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

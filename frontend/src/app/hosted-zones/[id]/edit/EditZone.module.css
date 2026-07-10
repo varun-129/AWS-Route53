@@ -1,0 +1,196 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.infoLink {
+  color: #3eaeff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.infoLink:hover {
+  color: #6ebcff;
+  text-decoration: underline;
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid #aab7b8;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.cardHeader {
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.readOnlyField {
+  margin-bottom: 20px;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.fieldValue {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.formGroup {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fieldDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.textarea {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--border-color-strong);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 80px;
+  resize: vertical;
+  margin-top: 4px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #3eaeff;
+  box-shadow: 0 0 0 1px #3eaeff;
+}
+
+.charCount {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.tagEmptyText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.addTagBtn {
+  background-color: transparent;
+  border: 1px solid var(--border-color-strong);
+  color: #3eaeff;
+  height: 32px;
+  padding: 0 20px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.addTagBtn:hover {
+  background-color: rgba(62, 174, 255, 0.1);
+}
+
+.tagHelpText {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  border: none;
+  color: #3eaeff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.cancelBtn:hover {
+  background-color: rgba(62, 174, 255, 0.1);
+}
+
+.saveBtn {
+  background-color: #ec7211;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 20px;
+  border-radius: 16px;
+}
+
+.saveBtn:hover {
+  background-color: #eb5f07;
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

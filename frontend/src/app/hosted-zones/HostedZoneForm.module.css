@@ -1,0 +1,290 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.infoLink {
+  color: #3eaeff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.infoLink:hover {
+  color: #6ebcff;
+  text-decoration: underline;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid #aab7b8;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.cardHeader {
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background-color: #aab7b8;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.fieldDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.radioCardsContainer {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.radioCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #aab7b8;
+  border-radius: 8px;
+  flex: 1;
+  cursor: pointer;
+  background-color: var(--bg-surface);
+  transition: all 0.2s ease;
+}
+
+.radioCardSelected {
+  border: 2px solid var(--link-color);
+  background-color: var(--bg-surface);
+  padding: 15px;
+}
+
+.radioInput {
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.radioText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.radioText strong {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.radioText span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.formGroup {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputField {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #3eaeff;
+  box-shadow: 0 0 0 1px #3eaeff;
+}
+
+.inputField::placeholder {
+  color: var(--text-secondary);
+}
+
+.textarea {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 80px;
+  resize: vertical;
+  margin-top: 4px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #3eaeff;
+  box-shadow: 0 0 0 1px #3eaeff;
+}
+
+.textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+.charCount {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.tagEmptyText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.addTagBtn {
+  background-color: transparent;
+  border: 1px solid #3eaeff;
+  color: #3eaeff;
+  height: 32px;
+  padding: 0 20px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 8px;
+  align-self: flex-start;
+}
+
+.addTagBtn:hover {
+  background-color: rgba(62, 174, 255, 0.1);
+}
+
+.tagHelpText {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  border: none;
+  color: #3eaeff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.cancelBtn:hover {
+  background-color: rgba(62, 174, 255, 0.1);
+}
+
+.submitBtn {
+  background-color: #ec7211;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: #eb5f07;
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

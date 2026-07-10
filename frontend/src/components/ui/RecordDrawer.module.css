@@ -1,0 +1,144 @@
+.drawerContainer {
+  width: 350px;
+  background-color: transparent;
+  border-left: 1.5px solid var(--text-primary);
+  height: calc(100vh - 90px);
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconDivider {
+  width: 1px;
+  height: 16px;
+  background-color: var(--text-secondary);
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.iconBtn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-hover);
+}
+
+.drawerContent {
+  padding: 10px 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 16px;
+  color: var(--text-secondary);
+}
+
+.emptyTitle {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.emptyDesc {
+  font-size: 13px;
+}
+
+.recordDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawerActions {
+  display: flex;
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  border: 1px solid #3eaeff;
+  color: #3eaeff;
+  height: 32px;
+  padding: 0 20px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background-color: rgba(62, 174, 255, 0.1);
+}
+
+.detailGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailGroup label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.value {
+  font-size: 14px;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.valueWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.copyIcon {
+  color: #3eaeff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.copyIcon:hover {
+  color: #6ebcff;
+}
