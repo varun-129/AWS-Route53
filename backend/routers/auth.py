@@ -23,9 +23,9 @@ def login(request: LoginRequest, response: Response, db: Session = Depends(get_d
         key="session_token",
         value=session.token,
         httponly=True,
-        samesite="lax",
+        samesite="none",
         max_age=86400, # 24 hours
-        secure=False, # Set to True in production with HTTPS
+        secure=True, 
     )
     
     return {"message": "Logged in successfully"}
@@ -33,7 +33,7 @@ def login(request: LoginRequest, response: Response, db: Session = Depends(get_d
 @router.post("/logout")
 def logout(response: Response, session: SessionModel = Depends(get_current_session), db: Session = Depends(get_db)):
     delete_session(db, session.token)
-    response.delete_cookie("session_token")
+    response.delete_cookie("session_token", samesite="none", secure=True)
     return {"message": "Logged out successfully"}
 
 @router.get("/session", response_model=SessionResponse)
