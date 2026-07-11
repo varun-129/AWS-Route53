@@ -126,7 +126,7 @@ export default function ZoneDetailPage() {
 
   const handleExportJSON = async () => {
     try {
-      const recordsToExport = records.filter(r => checkedRecordIds.includes(r.id));
+      const recordsToExport = data.filter(r => checkedRecordIds.includes(r.id));
       if (recordsToExport.length === 0) {
         addToast('No records selected for export', 'error');
         return;
