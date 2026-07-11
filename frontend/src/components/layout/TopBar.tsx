@@ -1,14 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './TopBar.module.css';
 import { useAuth } from '@/lib/AuthContext';
 import { useTheme } from '@/lib/ThemeContext';
-import { LogOut, Moon, Sun, Globe, User, Search, Bell, Settings, HelpCircle, Terminal, Grip } from 'lucide-react';
+import { LogOut, Moon, Sun, Globe, User, Search, Bell, Settings, HelpCircle, Terminal, Grip, Copy } from 'lucide-react';
 
 export function TopBar() {
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className={styles.topBar}>
@@ -84,14 +98,81 @@ export function TopBar() {
               <span className={styles.navItemText}>Global</span>
               <span className={styles.dropdownArrow}>▼</span>
             </div>
-            <div className={styles.navDropdown} aria-disabled="true">
-              <span className={styles.userInitials}>{user.username.substring(0,2).toUpperCase()}</span>
-              <span className={styles.navItemText}>{user.username}</span>
-              <span className={styles.dropdownArrow}>▼</span>
+            
+            <div className={styles.userMenuContainer} ref={userMenuRef}>
+              <div 
+                className={`${styles.navDropdown} ${isUserMenuOpen ? styles.active : ''}`} 
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+              >
+                <span className={styles.userInitials}>{user.username.substring(0,2).toUpperCase()}</span>
+                <span className={styles.navItemText}>{user.username}</span>
+                <span className={styles.dropdownArrow}>▼</span>
+              </div>
+              
+              {isUserMenuOpen && (
+                <div className={styles.userMenuDropdown}>
+                  <div className={styles.menuSection}>
+                    <div className={styles.menuTitle}>Free plan status</div>
+                    <div className={styles.creditsRow}>
+                      <div className={styles.creditsCol}>
+                        <div className={styles.creditsColLabel}>Credits remaining</div>
+                        <div className={styles.creditsColValue}>$100.00 USD</div>
+                      </div>
+                      <div className={styles.creditsCol}>
+                        <div className={styles.creditsColLabel}>Days remaining</div>
+                        <div className={`${styles.creditsColValue} ${styles.white}`}>185 days</div>
+                      </div>
+                    </div>
+                    <div className={styles.freeTierText}>
+                      Your free access to AWS services will end on Jan 10, 2027 or when you have depleted all credits. To ensure uninterrupted AWS access, see <a className={styles.freeTierLink}>upgrading your plan</a> for details.
+                    </div>
+                  </div>
+                  
+                  <hr className={styles.menuDivider} />
+                  
+                  <div className={styles.accountInfo}>
+                    <div className={styles.accountInfoRow}>
+                      <div className={styles.accountInfoLabel}>Account ID</div>
+                      <div className={styles.accountInfoValue}>
+                        <Copy size={14} className={styles.copyIcon} /> 5683-1196-1977
+                      </div>
+                    </div>
+                    <div className={styles.accountInfoRow}>
+                      <div className={styles.accountInfoLabel}>Account name</div>
+                      <div className={styles.accountInfoValue}>
+                        <Copy size={14} className={styles.copyIcon} /> {user.username}
+                      </div>
+                    </div>
+                    <div className={styles.accountInfoRow}>
+                      <div className={styles.accountInfoLabel}>Account color</div>
+                      <div className={styles.accountInfoValue}>
+                        <span className={styles.accountColorCircle}></span> Unset
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <hr className={styles.menuDivider} />
+                  
+                  <div className={styles.menuLinks}>
+                    <div className={styles.menuLink}>Account</div>
+                    <div className={styles.menuLink}>Organization</div>
+                    <div className={styles.menuLink}>Service Quotas</div>
+                    <div className={styles.menuLink}>Billing and Cost Management</div>
+                    <div className={styles.menuLink}>Security credentials</div>
+                    <div className={styles.menuLink}>Console Mobile App</div>
+                  </div>
+                  
+                  <hr className={styles.menuDivider} />
+                  
+                  <div className={styles.menuFooter}>
+                    <button className={styles.multiSessionBtn}>Turn on multi-session support</button>
+                    <div className={styles.signOutRow}>
+                      <button className={styles.signOutBtn} onClick={() => logout()}>Sign out</button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-            <button className={styles.logoutBtn} onClick={() => logout()} aria-label="Logout">
-              <LogOut size={16} />
-            </button>
           </>
         ) : (
           <div className={styles.navItem}>Not signed in</div>

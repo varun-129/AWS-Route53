@@ -180,3 +180,185 @@
   background-color: rgba(255, 255, 255, 0.1);
   opacity: 1;
 }
+
+/* User Menu Dropdown Styles */
+.userMenuContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.userMenuDropdown {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  width: 340px;
+  background-color: #1f2733;
+  border: 1px solid #414750;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #eaeded;
+  z-index: 1000;
+  font-size: 13px;
+  padding: 16px 0 0 0;
+  cursor: default;
+}
+
+.menuSection {
+  padding: 0 20px 16px 20px;
+}
+
+.menuDivider {
+  height: 1px;
+  background-color: #414750;
+  margin: 0;
+  border: none;
+}
+
+.menuTitle {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.creditsRow {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.creditsCol {
+  flex: 1;
+}
+
+.creditsCol:first-child {
+  border-right: 1px solid #414750;
+  margin-right: 16px;
+}
+
+.creditsColLabel {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.creditsColValue {
+  color: #3b99fc;
+  font-weight: 700;
+  font-size: 14px;
+}
+.creditsColValue.white {
+  color: #eaeded;
+}
+
+.freeTierText {
+  font-size: 12px;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.freeTierLink {
+  color: #3b99fc;
+  cursor: pointer;
+  text-decoration: none;
+}
+.freeTierLink:hover {
+  text-decoration: underline;
+}
+
+.accountInfo {
+  padding: 16px 20px;
+}
+
+.accountInfoRow {
+  margin-bottom: 12px;
+}
+.accountInfoRow:last-child {
+  margin-bottom: 0;
+}
+
+.accountInfoLabel {
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.accountInfoValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #eaeded;
+}
+
+.copyIcon {
+  color: #3b99fc;
+  cursor: pointer;
+}
+
+.accountColorCircle {
+  width: 14px;
+  height: 14px;
+  background-color: #687078;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.menuLinks {
+  padding: 8px 0;
+}
+
+.menuLink {
+  padding: 8px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #eaeded;
+  display: block;
+}
+.menuLink:hover {
+  background-color: #2e3846;
+}
+
+.menuFooter {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #1f2733;
+}
+
+.multiSessionBtn {
+  background: transparent;
+  border: 1px solid #3b99fc;
+  color: #3b99fc;
+  border-radius: 16px;
+  padding: 4px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 13px;
+}
+
+.multiSessionBtn:hover {
+  background: rgba(59, 153, 252, 0.1);
+}
+
+.signOutRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signOutBtn {
+  background-color: #ec7211;
+  color: #0f141f;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 20px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.signOutBtn:hover {
+  background-color: #eb5f07;
+}
