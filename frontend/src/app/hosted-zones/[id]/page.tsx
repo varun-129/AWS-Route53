@@ -249,7 +249,7 @@ export default function ZoneDetailPage() {
                     </button>
                   )}
                   <button 
-                    className={styles.secondaryBtn} 
+                    className={styles.secondaryBtnBlue} 
                     onClick={handleExportJSON}
                     disabled={checkedRecordIds.length === 0}
                   >

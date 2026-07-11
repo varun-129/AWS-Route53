@@ -31,10 +31,10 @@
   content: "";
   position: absolute;
   right: 0;
-  top: 30%;
-  height: 40%;
+  top: 20%;
+  height: 60%;
   width: 1px;
-  background-color: #16191f;
+  background-color: var(--border-color-strong);
 }
 
 .checkboxTh, .checkboxTd {

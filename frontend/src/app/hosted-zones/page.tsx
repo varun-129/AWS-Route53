@@ -74,7 +74,7 @@ export default function HostedZonesPage() {
   const columns: Column<HostedZone>[] = [
     {
       key: 'name',
-      header: 'Hosted zone name ▼',
+      header: 'Hosted zone name ▽',
       render: (zone) => (
         <Link href={`/hosted-zones/${zone.id}`} className={styles.link}>
           {zone.name}
@@ -83,26 +83,26 @@ export default function HostedZonesPage() {
     },
     {
       key: 'type',
-      header: 'Type ▼',
+      header: 'Type ▽',
     },
     {
       key: 'createdBy',
-      header: 'Created by ▼',
+      header: 'Created by ▽',
       render: () => 'Route 53'
     },
     {
       key: 'recordCount',
-      header: 'Record count ▼',
+      header: 'Record count ▽',
       render: (zone) => (zone.record_count ?? 0).toString()
     },
     {
       key: 'description',
-      header: 'Description ▼',
+      header: 'Description ▽',
       render: (zone) => zone.comment || '-'
     },
     {
       key: 'hostedZoneId',
-      header: 'Hosted zone ID ▼',
+      header: 'Hosted zone ID ▽',
       render: (zone) => `Z0${zone.id}EXAMPLE` // Placeholder
     }
   ];

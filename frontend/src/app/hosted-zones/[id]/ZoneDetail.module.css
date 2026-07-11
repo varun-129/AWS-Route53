@@ -54,24 +54,52 @@
 
 .secondaryBtn {
   background-color: transparent;
-  border: 1px solid var(--link-color);
-  color: var(--link-color);
-  height: 28px;
+  border: 1px solid #545b64;
+  color: var(--text-secondary);
+  height: 32px;
   padding: 0 14px;
-  border-radius: 14px;
-  font-size: 13px;
+  border-radius: 16px;
+  font-size: 12px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .secondaryBtn:hover:not(:disabled) {
-  background-color: rgba(9, 114, 211, 0.05);
+  background-color: var(--bg-surface-hover);
+  border-color: #879596;
+  color: var(--text-primary);
 }
 
 .secondaryBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondaryBtnBlue {
+  background-color: transparent;
+  border: 1px solid var(--link-color);
+  color: var(--link-color);
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.secondaryBtnBlue:hover:not(:disabled) {
+  background-color: rgba(9, 114, 211, 0.05);
+}
+
+.secondaryBtnBlue:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -190,23 +218,28 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .filters {
   display: flex;
   gap: 8px;
+  flex: 1;
 }
 
 .searchBox {
   display: flex;
   align-items: center;
-  background-color: var(--bg-surface);
-  border: 1px solid #d5dbdb;
-  border-radius: 4px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color-strong);
+  border-radius: 8px;
   padding: 0 12px;
-  width: 600px;
+  flex: 1;
+  min-width: 150px;
+  max-width: 600px;
   height: 32px;
-  margin-right: 60px;
+  margin-right: 16px;
 }
 
 .searchBox:focus-within {
@@ -225,7 +258,7 @@
 }
 
 .searchInput::placeholder {
-  color: #ffffff;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -286,13 +319,14 @@
   border-radius: var(--border-radius-button);
   height: 32px;
   padding: 0 20px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .createBtn:hover {

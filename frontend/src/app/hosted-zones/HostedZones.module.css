@@ -63,9 +63,9 @@
 .searchBox {
   display: flex;
   align-items: center;
-  background-color: var(--bg-surface);
-  border: 1px solid #d5dbdb;
-  border-radius: 4px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color-strong);
+  border-radius: 8px;
   padding: 6px 12px;
   flex: 1;
   min-width: 300px;
@@ -88,14 +88,12 @@
 }
 
 .searchInput::placeholder {
-  color: #ffffff;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
-
-
 .searchIcon {
-  color: #545b64;
+  color: var(--text-primary);
 }
 
 .toolbarActions {

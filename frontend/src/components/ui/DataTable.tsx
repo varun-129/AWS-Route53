@@ -56,7 +56,7 @@ export function DataTable<T>({
         <thead>
           <tr>
             {selectable ? (
-              <th className={styles.checkboxTh}>
+              <th className={`${styles.checkboxTh} ${styles.dividerTh}`}>
                 <input 
                   type="checkbox" 
                   checked={isAllChecked}
@@ -64,12 +64,12 @@ export function DataTable<T>({
                 />
               </th>
             ) : onRowClick ? (
-              <th className={styles.checkboxTh}>
+              <th className={`${styles.checkboxTh} ${styles.dividerTh}`}>
                 <input type="radio" disabled style={{ visibility: 'hidden' }} />
               </th>
             ) : null}
             {columns.map((col, idx) => (
-              <th key={col.key} className={idx < columns.length - 1 ? styles.dividerTh : ''}>
+              <th key={col.key} className={styles.dividerTh}>
                 <div className={styles.thContent}>
                   {col.header}
                 </div>
