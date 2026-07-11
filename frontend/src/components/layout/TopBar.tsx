@@ -4,18 +4,23 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './TopBar.module.css';
 import { useAuth } from '@/lib/AuthContext';
 import { useTheme } from '@/lib/ThemeContext';
-import { LogOut, Moon, Sun, Globe, User, Search, Bell, Settings, HelpCircle, Terminal, Grip, Copy } from 'lucide-react';
+import { LogOut, Moon, Sun, Globe, User, Search, Bell, Settings, HelpCircle, Terminal, SquareTerminal, Grip, Copy } from 'lucide-react';
 
 export function TopBar() {
   const { user, logout } = useAuth();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const settingsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
         setIsUserMenuOpen(false);
+      }
+      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+        setIsSettingsOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -82,14 +87,85 @@ export function TopBar() {
       </div>
 
       <div className={styles.navContainer}>
-
-        <button className={styles.iconBtn} aria-label="Settings placeholder" disabled>
-          <Settings size={16} />
-        </button>
         
-        <button className={styles.iconBtn} onClick={toggleTheme} aria-label="Toggle theme">
-          {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+        <button className={styles.iconBtn} aria-label="CloudShell" disabled>
+          <SquareTerminal size={16} />
         </button>
+        <div className={styles.navSeparator} />
+        
+        <button className={styles.iconBtn} aria-label="Notifications" disabled>
+          <Bell size={16} />
+        </button>
+        <div className={styles.navSeparator} />
+        
+        <button className={styles.iconBtn} aria-label="Help" disabled>
+          <HelpCircle size={16} />
+        </button>
+        <div className={styles.navSeparator} />
+
+        <div className={styles.settingsMenuContainer} ref={settingsRef}>
+          <button 
+            className={`${styles.iconBtn} ${isSettingsOpen ? styles.activeIconBtn : ''}`} 
+            onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+            aria-label="Settings"
+          >
+            <Settings size={16} />
+          </button>
+          
+          {isSettingsOpen && (
+            <div className={styles.settingsDropdown}>
+              <div className={styles.settingsHeader}>Current user settings</div>
+              <div className={styles.settingsSection}>
+                <div className={styles.settingsLabel}>Language</div>
+                <select className={styles.settingsSelect}>
+                  <option>Browser default</option>
+                  <option>English</option>
+                </select>
+              </div>
+              
+              <div className={styles.settingsSection}>
+                <div className={styles.settingsLabel}>Visual mode - <i>beta</i></div>
+                <div className={styles.radioGroup}>
+                  <label className={styles.radioLabel}>
+                    <input type="radio" name="theme" disabled />
+                    <span className={styles.radioCustom}></span>
+                    Browser default
+                  </label>
+                  <label className={styles.radioLabel}>
+                    <input 
+                      type="radio" 
+                      name="theme" 
+                      checked={theme === 'light'} 
+                      onChange={() => setTheme('light')}
+                    />
+                    <span className={styles.radioCustom}></span>
+                    Light
+                  </label>
+                  <label className={styles.radioLabel}>
+                    <input 
+                      type="radio" 
+                      name="theme" 
+                      checked={theme === 'dark'} 
+                      onChange={() => setTheme('dark')}
+                    />
+                    <span className={styles.radioCustom}></span>
+                    Dark
+                  </label>
+                </div>
+              </div>
+              
+              <hr className={styles.menuDivider} />
+              
+              <div className={styles.settingsLinks}>
+                <a href="#" className={styles.settingsLink}>See all user settings</a>
+                <a href="#" className={styles.settingsLink}>
+                  AWS experimental preview
+                  <svg className={styles.beakerIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9.9 14.5l-3.3 4.2A2 2 0 008.2 22h7.6a2 2 0 001.6-3.3l-3.3-4.2V5h2V3H8v2h2v9.5z"></path></svg>
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
         
         {user ? (
           <>
