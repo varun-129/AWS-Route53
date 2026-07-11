@@ -54,7 +54,7 @@
 
 .secondaryBtn {
   background-color: transparent;
-  border: 1.5px solid var(--link-color);
+  border: 1px solid var(--link-color);
   color: var(--link-color);
   height: 32px;
   padding: 0 20px;
@@ -78,7 +78,7 @@
 
 .zoneDetailsCard {
   background-color: var(--bg-surface);
-  border: 1.5px solid #16191f;
+  border: 1px solid #d5dbdb;
   border-radius: 16px;
   margin-bottom: 24px;
 }
@@ -125,7 +125,7 @@
 
 .recordsSection {
   background-color: var(--bg-surface);
-  border: 1.5px solid #16191f;
+  border: 1px solid #d5dbdb;
   border-radius: 16px;
   padding: 20px;
 }
@@ -189,7 +189,7 @@
   display: flex;
   align-items: center;
   background-color: var(--bg-surface);
-  border: 1.5px solid #545b64;
+  border: 1px solid #d5dbdb;
   border-radius: 4px;
   padding: 0 12px;
   width: 600px;
@@ -227,7 +227,7 @@
   height: 32px;
   font-size: 13px;
   font-style: italic;
-  border: 1.5px solid #545b64;
+  border: 1px solid #d5dbdb;
   border-radius: 4px;
   background-color: var(--bg-surface);
   color: var(--text-primary);
@@ -247,7 +247,7 @@
 
 .iconBtn {
   background: transparent;
-  border: 1.5px solid var(--link-color);
+  border: 1px solid var(--link-color);
   color: var(--link-color);
   height: 32px;
   width: 32px;

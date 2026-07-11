@@ -64,7 +64,7 @@
   display: flex;
   align-items: center;
   background-color: var(--bg-surface);
-  border: 1.5px solid #545b64;
+  border: 1px solid #d5dbdb;
   border-radius: 4px;
   padding: 6px 12px;
   flex: 1;

@@ -10,7 +10,7 @@
   align-items: center;
   height: 36px;
   background-color: var(--bg-surface);
-  border-bottom: 1.5px solid var(--text-primary);
+  border-bottom: 1px solid #d5dbdb;
   padding: 0 16px;
   margin-top: 40px;
   /* height of top bar */
