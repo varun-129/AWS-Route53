@@ -126,11 +126,15 @@ export default function ZoneDetailPage() {
 
   const handleExportJSON = async () => {
     try {
-      const res = await api.getDnsRecords(zoneId, 1, 10, undefined, undefined, true);
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(res.items, null, 2));
+      const recordsToExport = records.filter(r => checkedRecordIds.includes(r.id));
+      if (recordsToExport.length === 0) {
+        addToast('No records selected for export', 'error');
+        return;
+      }
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(recordsToExport, null, 2));
       const downloadAnchorNode = document.createElement('a');
       downloadAnchorNode.setAttribute("href", dataStr);
-      downloadAnchorNode.setAttribute("download", `${zone?.name || 'zone'}-records.json`);
+      downloadAnchorNode.setAttribute("download", `${zone?.name || 'zone'}-selected-records.json`);
       document.body.appendChild(downloadAnchorNode);
       downloadAnchorNode.click();
       downloadAnchorNode.remove();
@@ -244,7 +248,11 @@ export default function ZoneDetailPage() {
                       Delete record
                     </button>
                   )}
-                  <button className={styles.secondaryBtn} onClick={handleExportJSON}>
+                  <button 
+                    className={styles.secondaryBtn} 
+                    onClick={handleExportJSON}
+                    disabled={checkedRecordIds.length === 0}
+                  >
                     Export JSON
                   </button>
                   <Link href={`/hosted-zones/${zoneId}/records/new`} className={styles.createBtn}>
