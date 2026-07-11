@@ -2,6 +2,8 @@
 
 A production-grade, full-stack clone of the AWS Route53 console UI/UX and CRUD workflows.
 
+🚀 **Live Demo:** [https://aws-route53-rosy.vercel.app/](https://aws-route53-rosy.vercel.app/)
+
 ## Architecture Overview
 
 This project is divided into two distinct components:
@@ -98,9 +100,11 @@ Ensure you have Node.js (v18+) and Python (v3.9+) installed.
 
 ## Deployment
 
-The application is prepared for deployment to standard PaaS providers (e.g., Render, Railway for the backend; Vercel for the frontend).
+The application is currently deployed in production:
+- **Frontend**: Hosted on [Vercel](https://vercel.com/) at [https://aws-route53-rosy.vercel.app/](https://aws-route53-rosy.vercel.app/)
+- **Backend**: Hosted on [Render](https://render.com/)
 
-### Backend Deployment (e.g., Render, Railway)
+### Backend Deployment (Render)
 
 The backend includes a `Dockerfile` for simple containerized deployments.
 
