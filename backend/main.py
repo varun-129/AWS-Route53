@@ -9,6 +9,7 @@ app = FastAPI(title="Route53 Clone API")
 origins = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://aws-route53-rosy.vercel.app/",
 ]
 
 frontend_url = os.getenv("FRONTEND_URL")
