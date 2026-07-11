@@ -167,6 +167,8 @@ export function TopBar() {
           )}
         </div>
         
+        <div className={styles.navSeparator} />
+        
         {user ? (
           <>
             <div className={styles.navDropdown} aria-disabled="true">
