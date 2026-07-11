@@ -6,7 +6,10 @@ import { usePathname } from 'next/navigation';
 import styles from './Sidebar.module.css';
 import { Menu, Terminal, MessageSquare, Smartphone, ChevronRight, ChevronDown, ChevronLeft } from 'lucide-react';
 
-const SECTIONS = [
+type LinkItem = { name: string; href: string; disabled?: boolean; isNew?: boolean };
+type Section = { title: string; links?: LinkItem[]; href?: string; disabled?: boolean };
+
+const SECTIONS: Section[] = [
   {
     title: 'Route 53',
     links: [
