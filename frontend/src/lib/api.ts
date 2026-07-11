@@ -99,10 +99,13 @@ export const api = {
     return res;
   },
   logout: async () => {
-    localStorage.removeItem('session_token');
-    return fetchApi('/auth/logout', {
-      method: 'POST',
-    });
+    try {
+      await fetchApi('/auth/logout', {
+        method: 'POST',
+      });
+    } finally {
+      localStorage.removeItem('session_token');
+    }
   },
   getSession: () => fetchApi<Session>('/auth/session'),
 
