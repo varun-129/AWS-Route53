@@ -53,26 +53,30 @@
 }
 
 .secondaryBtn {
-  background-color: transparent;
-  border: 1px solid var(--link-color);
-  color: var(--link-color);
+  background-color: #ffffff;
+  border: 2px solid #879596;
+  color: #545b64;
   height: 32px;
   padding: 0 20px;
   border-radius: 16px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .secondaryBtn:hover:not(:disabled) {
-  background-color: var(--bg-surface-hover);
+  background-color: #f2f3f3;
+  border-color: #545b64;
+  color: #16191f;
 }
 
 .secondaryBtn:disabled {
-  opacity: 0.5;
+  border: 2px solid #eaeded;
+  color: #aab7b8;
+  background-color: #ffffff;
   cursor: not-allowed;
 }
 
