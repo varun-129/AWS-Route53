@@ -47,14 +47,20 @@ export interface DNSRecord {
 
 async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const url = `${API_BASE}${endpoint}`;
+  const token = typeof window !== 'undefined' ? localStorage.getItem('session_token') : null;
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const response = await fetch(url, {
     ...options,
     headers: {
-      'Content-Type': 'application/json',
+      ...headers,
       ...options.headers,
     },
-    // Important for sending httpOnly cookies
-    credentials: 'include',
   });
 
   if (!response.ok) {
@@ -82,8 +88,22 @@ async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise
 
 export const api = {
   // Auth
-  login: (credentials: Record<string, string>) => fetchApi('/auth/login', { method: 'POST', body: JSON.stringify(credentials) }),
-  logout: () => fetchApi('/auth/logout', { method: 'POST' }),
+  login: async (credentials: Record<string, string>) => {
+    const res = await fetchApi<{token: string; message: string}>('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(credentials),
+    });
+    if (res.token) {
+      localStorage.setItem('session_token', res.token);
+    }
+    return res;
+  },
+  logout: async () => {
+    localStorage.removeItem('session_token');
+    return fetchApi('/auth/logout', {
+      method: 'POST',
+    });
+  },
   getSession: () => fetchApi<Session>('/auth/session'),
 
   // Hosted Zones

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, status
+# pyrefly: ignore [missing-import]
 from sqlalchemy.orm import Session
 from database import get_db
 from schemas import LoginRequest, SessionResponse
@@ -19,21 +20,11 @@ def login(request: LoginRequest, response: Response, db: Session = Depends(get_d
     
     session = create_session(db, user.id)
     
-    response.set_cookie(
-        key="session_token",
-        value=session.token,
-        httponly=True,
-        samesite="none",
-        max_age=86400, # 24 hours
-        secure=True, 
-    )
-    
-    return {"message": "Logged in successfully"}
+    return {"token": session.token, "message": "Logged in successfully"}
 
 @router.post("/logout")
 def logout(response: Response, session: SessionModel = Depends(get_current_session), db: Session = Depends(get_db)):
     delete_session(db, session.token)
-    response.delete_cookie("session_token", samesite="none", secure=True)
     return {"message": "Logged out successfully"}
 
 @router.get("/session", response_model=SessionResponse)
